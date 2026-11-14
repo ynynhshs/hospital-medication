@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medication Schedules</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Medication Schedules</h1>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/pages/dashboard.html">Dashboard</a>
+        <a href="/pages/medication-orders.html">Orders</a>
+        <a href="/pages/medication-administration.html">Administration</a>
+      </nav>
+      <section class="card">
+        <p>Schedules are generated only for active, verified, non-PRN orders. Supported frequency formats are “Every N hours” (1–24) and “Daily”.</p>
+        <button id="generate-schedules" type="button">Generate schedules</button>
+        <p id="page-message" role="status" aria-live="polite"></p>
+      </section>
+      <section class="card" aria-labelledby="schedule-heading">
+        <h2 id="schedule-heading">Scheduled doses</h2>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr><th>Due</th><th>Patient</th><th>Medication</th><th>Dose</th><th>Route</th><th>Status</th></tr>
+            </thead>
+            <tbody id="schedule-rows"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <script src="/js/api.js"></script>
+    <script src="/js/medication-schedules.js"></script>
+  </body>
+</html>

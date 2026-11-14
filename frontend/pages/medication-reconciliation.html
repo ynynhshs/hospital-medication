@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medication Reconciliation</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Medication Reconciliation</h1>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/pages/dashboard.html">Dashboard</a>
+        <a href="/pages/patient-list.html">Patients</a>
+        <a href="/pages/medication-orders.html">Orders</a>
+        <a href="/pages/medication-exceptions.html">Exceptions</a>
+      </nav>
+      <section class="card">
+        <p>Document the patient's reported medication information and any differences. This record does not change or prescribe medication orders.</p>
+        <form id="reconciliation-form">
+          <label>Patient ID <input id="patient-id" required /></label>
+          <label>Medication name <input id="medication-name" required /></label>
+          <label>Existing medication information
+            <textarea id="existing-medication-info" rows="3" placeholder="Include the medication information reported or reviewed." required></textarea>
+          </label>
+          <label>Review outcome
+            <select id="review-outcome" required>
+              <option value="Reconciled">Reconciled</option>
+              <option value="Discrepancy Identified">Discrepancy identified</option>
+              <option value="Unable to Confirm">Unable to confirm</option>
+            </select>
+          </label>
+          <label>Discrepancy details <textarea id="discrepancies" rows="3"></textarea></label>
+          <label>Notes <textarea id="notes" rows="3"></textarea></label>
+          <div class="row">
+            <button type="submit">Save reconciliation</button>
+            <button id="load-reconciliations" type="button" class="secondary">Load history</button>
+          </div>
+        </form>
+        <p id="page-message" role="status" aria-live="polite"></p>
+      </section>
+      <section class="card" aria-labelledby="history-heading">
+        <h2 id="history-heading">Reconciliation history</h2>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr><th>Date</th><th>Patient</th><th>Medication</th><th>Reported information</th><th>Outcome</th><th>Discrepancies</th><th>Notes</th></tr>
+            </thead>
+            <tbody id="reconciliation-rows"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <script src="/js/api.js"></script>
+    <script src="/js/medication-reconciliation.js"></script>
+  </body>
+</html>

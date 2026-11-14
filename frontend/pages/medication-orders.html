@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medication Orders</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Medication Orders</h1>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/pages/dashboard.html">Dashboard</a>
+        <a href="/pages/medication-schedules.html">Schedules</a>
+        <a href="/pages/medication-administration.html">Administration</a>
+      </nav>
+      <section class="card">
+        <h2>Create order</h2>
+        <form id="order-form">
+          <label>Patient ID <input type="text" id="patientId" required /></label>
+          <label>Medication name <input type="text" id="medicationName" required /></label>
+          <div class="row">
+            <label>Prescribed dose <input type="text" id="prescribedDose" required /></label>
+            <label>Dose unit <input type="text" id="doseUnit" value="mg" required /></label>
+            <label>Route
+              <select id="route">
+                <option>Oral</option>
+                <option>Intravenous</option>
+                <option>Intramuscular</option>
+                <option>Subcutaneous</option>
+                <option>Topical</option>
+                <option>Inhalation</option>
+                <option>Other</option>
+              </select>
+            </label>
+          </div>
+          <label>Frequency
+            <input type="text" id="frequency" placeholder="Every 8 hours or Daily" required />
+          </label>
+          <label class="inline-label"><input type="checkbox" id="prnIndicator" /> As needed (PRN, not scheduled)</label>
+          <label>PRN indication <input type="text" id="prnIndication" /></label>
+          <label>Start date and time <input type="datetime-local" id="startDate" required /></label>
+          <label>End date and time (optional) <input type="datetime-local" id="endDate" /></label>
+          <p>Enter times in the facility’s local timezone.</p>
+          <button type="submit">Create order</button>
+        </form>
+        <p id="page-message" role="status" aria-live="polite"></p>
+      </section>
+      <section class="card" aria-labelledby="orders-heading">
+        <h2 id="orders-heading">Orders</h2>
+        <div id="orders-list"></div>
+      </section>
+    </main>
+    <script src="/js/api.js"></script>
+    <script src="/js/medication-orders.js"></script>
+  </body>
+</html>

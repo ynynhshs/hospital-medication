@@ -1,0 +1,30 @@
+{
+  "name": "medilink-medication-administration",
+  "version": "1.0.0",
+  "description": "MediLink Hospital Patient Medication Administration and Tracking System",
+  "main": "backend/src/server.js",
+  "scripts": {
+    "start": "node backend/src/server.js",
+    "dev": "node --watch backend/src/server.js",
+    "create:local-user": "node backend/scripts/create-local-user.js",
+    "migrate:shared-db": "node backend/scripts/migrate-shared-database.js",
+    "test": "node --test ./tests/medication.test.js ./tests/patient-workflows.test.js"
+  },
+  "type": "commonjs",
+  "dependencies": {
+    "argon2": "^0.41.1",
+    "bcryptjs": "^3.0.0",
+    "connect-mongo": "^6.0.0",
+    "dotenv": "^16.4.5",
+    "express": "^5.0.0",
+    "express-rate-limit": "^7.1.5",
+    "express-session": "^1.19.0",
+    "helmet": "^8.0.0",
+    "mongodb-memory-server": "^10.1.1",
+    "mongoose": "^8.7.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "supertest": "^7.3.2"
+  }
+}

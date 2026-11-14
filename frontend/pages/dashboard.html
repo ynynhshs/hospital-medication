@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MediLink Dashboard</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">OVERVIEW</p>
+          <h1>Medication Dashboard</h1>
+          <p>Monitor medication orders, scheduled doses, and administration activities.</p>
+          <p id="dashboard-date" class="dashboard-date"></p>
+        </div>
+        <a class="button-link" href="/pages/medication-administration.html">Open medication administration</a>
+      </header>
+      <div id="dashboard-root" class="kpis" aria-live="polite">
+        <div class="kpi"><div class="kpi-heading"><span class="kpi-icon">♙</span><strong>Patients</strong></div><div data-stat="totalPatients">—</div><div class="kpi-context">Registered in MediLink</div></div>
+        <div class="kpi"><div class="kpi-heading"><span class="kpi-icon">Rx</span><strong>Active orders</strong></div><div data-stat="activeOrders">—</div><div class="kpi-context">Verified and active</div></div>
+        <div class="kpi"><div class="kpi-heading"><span class="kpi-icon">◷</span><strong>Due today</strong></div><div data-stat="dueToday">—</div><div class="kpi-context">Scheduled medication doses</div></div>
+        <div class="kpi"><div class="kpi-heading"><span class="kpi-icon">!</span><strong>Due now</strong></div><div data-stat="dueNow">—</div><div class="kpi-context">Due or delayed and unrecorded</div></div>
+        <div class="kpi"><div class="kpi-heading"><span class="kpi-icon">✓</span><strong>Administered today</strong></div><div data-stat="successfulToday">—</div><div class="kpi-context">Recorded as administered</div></div>
+        <div class="kpi"><div class="kpi-heading"><span class="kpi-icon">↗</span><strong>Delayed doses</strong></div><div data-stat="delayedDoses">—</div><div class="kpi-context">Documented delay exceptions</div></div>
+        <div class="kpi"><div class="kpi-heading"><span class="kpi-icon">×</span><strong>Missed doses</strong></div><div data-stat="missedDoses">—</div><div class="kpi-context">Documented missed exceptions</div></div>
+        <div class="kpi"><div class="kpi-heading"><span class="kpi-icon">⌕</span><strong>Pending verification</strong></div><div data-stat="pendingVerification">—</div><div class="kpi-context">Medication orders awaiting review</div></div>
+      </div>
+      <p id="dashboard-timezone" class="timezone-note"></p>
+      <div class="dashboard-layout">
+        <section class="card dashboard-panel">
+          <h2>Today's medication schedule</h2>
+          <div id="today-schedule" class="table-wrap"></div>
+        </section>
+        <section class="card dashboard-panel">
+          <h2>Upcoming doses</h2>
+          <div id="upcoming-doses" class="dashboard-list"></div>
+        </section>
+        <section class="card dashboard-panel">
+          <h2>Medication alerts</h2>
+          <div id="dashboard-alerts" class="dashboard-list"></div>
+        </section>
+        <section class="card dashboard-panel">
+          <h2>Recent activity</h2>
+          <div id="recent-activities" class="dashboard-list"></div>
+        </section>
+        <section class="card dashboard-panel dashboard-panel-wide">
+          <h2>Today's administration overview</h2>
+          <div id="administration-overview" class="dashboard-chart" role="img" aria-label="Medication administration counts by status"></div>
+        </section>
+      </div>
+    </div>
+    <script src="/js/api.js"></script>
+    <script src="/js/dashboard.js"></script>
+  </body>
+</html>

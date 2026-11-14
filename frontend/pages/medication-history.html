@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medication History</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Medication History</h1>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/pages/dashboard.html">Dashboard</a>
+        <a href="/pages/patient-list.html">Patients</a>
+        <a href="/pages/medication-orders.html">Orders</a>
+        <a href="/pages/medication-reconciliation.html">Reconciliation</a>
+      </nav>
+      <section class="card">
+        <form id="history-search-form" class="row">
+          <label>Patient ID <input id="history-patient-id" required /></label>
+          <button type="submit">Load history</button>
+        </form>
+        <p id="history-message" role="status" aria-live="polite"></p>
+        <h2 id="history-patient-name"></h2>
+      </section>
+      <section class="card">
+        <h2>Orders</h2>
+        <div id="history-orders" class="table-wrap"></div>
+      </section>
+      <section class="card">
+        <h2>Administration records</h2>
+        <div id="history-administrations" class="table-wrap"></div>
+      </section>
+      <section class="card">
+        <h2>Exceptions</h2>
+        <div id="history-exceptions" class="table-wrap"></div>
+      </section>
+      <section class="card">
+        <h2>Reconciliations</h2>
+        <div id="history-reconciliations" class="table-wrap"></div>
+      </section>
+    </main>
+    <script src="/js/api.js"></script>
+    <script src="/js/medication-history.js"></script>
+  </body>
+</html>

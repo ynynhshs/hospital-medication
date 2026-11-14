@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medication Alerts</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Medication Alerts</h1>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/pages/dashboard.html">Dashboard</a>
+        <a href="/pages/medication-orders.html">Orders</a>
+        <a href="/pages/medication-exceptions.html">Exceptions</a>
+        <a href="/pages/medication-history.html">Medication history</a>
+      </nav>
+      <section class="card">
+        <p>Scheduled-dose reminders refresh automatically while this page is open.</p>
+        <button id="refresh-alerts" type="button">Refresh alerts</button>
+        <p id="alerts-message" role="status" aria-live="polite"></p>
+        <div id="alerts-list"></div>
+      </section>
+    </main>
+    <script src="/js/api.js"></script>
+    <script src="/js/medication-alerts.js"></script>
+  </body>
+</html>

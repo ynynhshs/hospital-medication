@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medication Catalog</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Medication Catalog</h1>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/pages/dashboard.html">Dashboard</a>
+        <a href="/pages/medication-orders.html">Orders</a>
+      </nav>
+      <section class="card">
+        <form id="catalog-form">
+          <label>Medication Code <input type="text" id="medicationCode" required /></label>
+          <label>Generic Name <input type="text" id="genericName" required /></label>
+          <label>Brand Name <input type="text" id="brandName" /></label>
+          <button type="submit">Add Medication</button>
+        </form>
+        <p id="catalog-message" role="status" aria-live="polite"></p>
+      </section>
+      <section class="card" aria-labelledby="catalog-heading">
+        <h2 id="catalog-heading">Available medications</h2>
+        <div id="catalog-list"></div>
+      </section>
+    </main>
+    <script src="/js/api.js"></script>
+    <script src="/js/medication-catalog.js"></script>
+  </body>
+</html>

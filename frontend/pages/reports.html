@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medication Reports</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Medication Reports</h1>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/pages/dashboard.html">Dashboard</a>
+        <a href="/pages/medication-orders.html">Orders</a>
+        <a href="/pages/medication-schedules.html">Schedules</a>
+        <a href="/pages/medication-administration.html">Administration</a>
+        <a href="/pages/medication-exceptions.html">Exceptions</a>
+        <a href="/pages/medication-reconciliation.html">Reconciliation</a>
+      </nav>
+      <section class="card">
+        <form id="report-filter" class="row">
+          <label>From <input id="report-from" type="date" required /></label>
+          <label>To <input id="report-to" type="date" required /></label>
+          <button type="submit">Run report</button>
+        </form>
+        <p id="report-message" role="status" aria-live="polite"></p>
+        <p id="report-timezone"></p>
+      </section>
+      <section id="report-results" class="kpis" aria-live="polite">
+        <div class="kpi"><strong>Orders</strong><div data-report="orders">0</div></div>
+        <div class="kpi"><strong>Scheduled doses</strong><div data-report="scheduled">0</div></div>
+        <div class="kpi"><strong>Administered</strong><div data-report="administered">0</div></div>
+        <div class="kpi"><strong>Delayed</strong><div data-report="delayed">0</div></div>
+        <div class="kpi"><strong>Missed</strong><div data-report="missed">0</div></div>
+        <div class="kpi"><strong>Refused</strong><div data-report="refused">0</div></div>
+        <div class="kpi"><strong>Withheld</strong><div data-report="withheld">0</div></div>
+        <div class="kpi"><strong>Reconciliations</strong><div data-report="reconciliations">0</div></div>
+      </section>
+    </main>
+    <script src="/js/api.js"></script>
+    <script src="/js/reports.js"></script>
+  </body>
+</html>

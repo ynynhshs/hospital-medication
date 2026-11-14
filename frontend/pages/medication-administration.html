@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medication Administration</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Medication Administration Record</h1>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/pages/dashboard.html">Dashboard</a>
+        <a href="/pages/medication-orders.html">Orders</a>
+        <a href="/pages/medication-schedules.html">Schedules</a>
+        <a href="/pages/medication-exceptions.html">Exceptions</a>
+      </nav>
+      <section class="card">
+        <p>Confirm the verified order and selected dose before recording. Actual dose is required for administration; a reason is required for all other outcomes.</p>
+        <form id="administration-form">
+          <label>Scheduled dose or PRN order
+            <select id="dose-selection" required>
+              <option value="">Select a dose</option>
+            </select>
+          </label>
+          <div class="row">
+            <label>Patient ID <input id="patient-id" readonly /></label>
+            <label>Medication <input id="medication-name" readonly /></label>
+            <label>Prescribed dose <input id="prescribed-dose" readonly /></label>
+          </div>
+          <label>Outcome
+            <select id="administration-status" required>
+              <option value="Administered">Administered</option>
+              <option value="Delayed">Delayed</option>
+              <option value="Withheld">Withheld</option>
+              <option value="Refused">Refused</option>
+              <option value="Omitted">Omitted</option>
+              <option value="Missed">Missed</option>
+            </select>
+          </label>
+          <label>Actual dose <input id="actual-dose" /></label>
+          <label>Reason if not administered <textarea id="exception-reason" rows="3"></textarea></label>
+          <label>Notes <textarea id="administration-notes" rows="3"></textarea></label>
+          <button type="submit">Record outcome</button>
+        </form>
+        <p id="page-message" role="status" aria-live="polite"></p>
+      </section>
+      <section class="card" aria-labelledby="mar-heading">
+        <h2 id="mar-heading">Recent administration records</h2>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr><th>Recorded</th><th>Patient</th><th>Medication</th><th>Dose</th><th>Outcome</th><th>Reason</th></tr>
+            </thead>
+            <tbody id="administration-rows"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <script src="/js/api.js"></script>
+    <script src="/js/medication-administration.js"></script>
+  </body>
+</html>

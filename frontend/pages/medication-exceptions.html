@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medication Exceptions</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Medication Exceptions</h1>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/pages/dashboard.html">Dashboard</a>
+        <a href="/pages/medication-orders.html">Orders</a>
+        <a href="/pages/medication-administration.html">Administration</a>
+      </nav>
+      <p id="page-message" role="status" aria-live="polite"></p>
+      <section class="card" aria-labelledby="exceptions-heading">
+        <h2 id="exceptions-heading">Recent exceptions</h2>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr><th>Recorded</th><th>Patient</th><th>Medication</th><th>Outcome</th><th>Reason</th><th>Review status</th><th>Review</th></tr>
+            </thead>
+            <tbody id="exception-rows"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <script src="/js/api.js"></script>
+    <script src="/js/medication-exceptions.js"></script>
+  </body>
+</html>

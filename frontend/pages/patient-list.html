@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patients</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">PATIENT CARE</p>
+          <h1>Patient Management</h1>
+          <p>View and manage patient information and medication-related records.</p>
+        </div>
+        <a class="button-link" href="/pages/patient-form.html" data-edit-role>＋ Add New Patient</a>
+      </header>
+      <section class="card patient-filter-panel" aria-label="Patient search and filters">
+        <form id="patient-search-form" class="patient-filter-form">
+          <label class="patient-search-field">Search patients
+            <input type="search" id="patient-search" placeholder="ID, name, phone, or email" />
+          </label>
+          <label>Sex
+            <select id="filter-sex"><option value="">All</option><option>Female</option><option>Male</option></select>
+          </label>
+          <label>Civil status
+            <select id="filter-civil-status"><option value="">All</option><option>Single</option><option>Married</option><option>Widowed</option><option>Separated</option></select>
+          </label>
+          <label>City
+            <input id="filter-city" type="search" placeholder="Any city" />
+          </label>
+          <label>Blood type
+            <select id="filter-blood-type">
+              <option value="">All</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+              <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
+            </select>
+          </label>
+          <label>Smoker
+            <select id="filter-smoker"><option value="">All</option><option value="yes">Yes</option><option value="no">No</option><option value="not-recorded">Not recorded</option></select>
+          </label>
+          <label>Insurance provider
+            <input id="filter-insurance" type="search" placeholder="Any provider" />
+          </label>
+          <div class="patient-filter-actions">
+            <button type="submit">Search</button>
+            <button type="button" class="secondary" id="clear-patient-filters">Clear filters</button>
+          </div>
+        </form>
+        <p id="patient-message" class="status-message" role="status" aria-live="polite">Loading patients…</p>
+      </section>
+      <section class="card table-wrap patient-table-panel" aria-label="Patients">
+        <table class="table patient-table">
+          <thead>
+            <tr>
+              <th><button type="button" class="sort-button" data-sort="patientId">Patient ID</button></th>
+              <th><button type="button" class="sort-button" data-sort="lastName">Patient</button></th>
+              <th><button type="button" class="sort-button" data-sort="birthDate">Birth date / age</button></th>
+              <th><button type="button" class="sort-button" data-sort="sex">Sex</button></th>
+              <th>Contact</th><th>City</th><th>Blood type</th><th>Medical alerts</th><th>Insurance</th><th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="patient-table"><tr><td colspan="10" class="table-state">Loading patients…</td></tr></tbody>
+        </table>
+        <div class="table-pagination">
+          <span id="patient-count">Showing patients</span>
+          <div>
+            <button type="button" class="secondary" id="patient-previous" disabled>Previous</button>
+            <span id="patient-page">Page 1</span>
+            <button type="button" class="secondary" id="patient-next" disabled>Next</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="/js/api.js"></script>
+    <script src="/js/patient-list.js"></script>
+  </body>
+</html>
